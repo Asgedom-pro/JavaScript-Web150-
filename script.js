@@ -1,4 +1,4 @@
-var firstName
-var lastName
-var yearsOfStudy
-var goal
+var firstName;
+var lastName;
+var yearsOfStudy;
+var goal;
