@@ -9,14 +9,4 @@ var goal;
 </body
 </html>
 
-<html>
-<body>
-<h2>Assignment 1</h2>
-<script>
- // this is a comment
- var x = 5;
- var firstname = "ted";
- document.write("my name is " + firstname);
-</script>
-</body
-</html>
+
