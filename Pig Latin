@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+    
+</head>
+    
+    
+<body>
+<h1>Ass2</h1>
+    
+<p id="demo"></p>    
+<script>
+     
+    var phrase= prompt("enter a phrase: ")
+    var first=phrase[0];
+    var vowels="aeiouAEIOU";
+    
+    // if the first letter is vowel do this
+    if (vowels.indexOf(first)>-1)
+        {
+            document.write(phrase +'way')
+        }
+    else if(vowels.indexOf(phrase[1]) >-1){
+        document.write(phrase.substring(1)+first+'ay')
+    }
+    else{
+        document.write(phrase.substring(2)+phrase.substring(0,2)+'ay')
+    }  
+    </script>
+    
+    
+    
+</body>
+</html>
+
