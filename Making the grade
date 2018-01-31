@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+    
+</head>
+    
+    
+<body>
+<h1>Ass2</h1>
+    
+<p id="demo"></p>    
+<script>
+    var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+  
+       
+   var students=grades.split(", ");
+   
+   //stores the total sum of all student grades 
+   var total=0;
+   var min=100;
+   var max=0;
+   //document.getElementById("demo").innerHTML=grades.split(",")
+    for (i in students)
+    {
+        var student =students[i].split("|");
+        // 0 = name, 1 = score
+        
+        var studentName = student[0];
+        var studentScore = parseInt(student[1]);
+        
+		if (studentScore<min)
+		{
+		min=studentScore;
+		}
+		
+		if(studentScore>max)
+		{
+		max=studentScore;
+		}
+		
+			
+        total=total + studentScore;
+		console.log(total);
+        
+        // Uppercase first letter of name
+        var upperCaseName = studentName[0].toUpperCase() + studentName.substring(1)
+        
+        // display name & score
+        
+        document.write('<li>' +upperCaseName + " - " + studentScore)
+        
+        
+    }
+    document.write('<li>'+ "total score for students "+ total);
+	var message = '<h1>the number of students ' + students.length + '</h1>';
+	 
+	document.write(message);
+	
+	var average=total/students.length;
+	document.write('<li>'+"the average is "+ average);
+    //document.write(studentScore[i]);
+	
+	document.write('<li>'+"the min is " + min);
+	document.write('<li>'+"the max is " + max);
+	
+    
+</script>
+    
+    
+    
+</body>
+</html>
