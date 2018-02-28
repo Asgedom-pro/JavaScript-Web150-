@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+<script>
+function ValidateContactForm()
+{
+    var firstname = document.ContactForm.firstname;
+    var lastname = document.ContactForm.lastname;
+    var Password = document.ContactForm.Password;
+   
+
+    if (firstname.value == "")
+    {
+        window.alert("Please enter your First Name.");
+        firstname.focus();
+        return false;
+    }
+    
+    if (lastname.value == "")
+    {
+        window.alert("Please enter Your Last Name");
+        lastname.focus();
+        return false;
+    }
+    if (Password.value == "")
+    {
+        window.alert("Please enter a valid Password");
+        Password.focus();
+        return false;
+    }
+    
+    return true;
+}
+
+
+</script>
+</head>
+
+<body>
+
+<form name="ContactForm" action="#" onsubmit="return ValidateContactForm(this);">
+    <p>First Name: <input type="text" size="65" name="firstname"></p>
+    <p>Last Name:  <input type="text" size="65" name="lastname"></p>
+    <p>Password: <input type="text" size="8" name="Password"><br>
+    <p><button >Check</button></p> 
+    
+        
+    
+    
+    
+</form>
+
+</body>
+</html>
