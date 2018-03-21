@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <style>
+        .over {
+            background-color: orange;
+        }
+        .selected {
+            background-color: green;
+        }
+    </style>
+
+    <body>
+        <div id="buttons"></div>
+        <table border='1'>
+            <tr>
+                <th>name</th>
+                <th>role</th>
+                <th>house</th>
+                <th>gender</th>
+                <th>alignment</th>
+            </tr>
+        </table>
+        <button>reset</button>
+    </body>
+        
+        <script>
+        // list of characters
+        var characters = [
+        {name:"Albus Dumbledore", role:"staff", house:"Gryffindor",gender:"m",alignment:"good"},    
+        {name:"Nymphadora Tonks", role:"", house:"Hufflepuff",gender:"f",alignment:"good"},    
+        {name:"Ron Weasley", role:"student", house:"Gryffindor",gender:"m",alignment:"good"},    
+        {name:"Ginny Weasley", role:"student", house:"Gryffindor",gender:"f",alignment:"good"},    
+        {name:"Hermione Granger", role:"student", house:"Gryffindor",gender:"f",alignment:"good"},    
+        {name:"Mad-eye Moody", role:"staff", house:"",gender:"m",alignment:"good"},    
+        {name:"Prof McGonagall", role:"staff", house:"Gryffindor",gender:"f",alignment:"good"},    
+        {name:"Harry Potter", role:"student", house:"Gryffindor",gender:"m",alignment:"good"},    
+        {name:"Draco Malfoy", role:"student", house:"Slytherin",gender:"m",alignment:"evil"},    
+        {name:"Hagrid", role:"staff", house:"Gryffindor",gender:"m",alignment:"good"},    
+        {name:"Luna Lovegood", role:"student", house:"Ravenclaw",gender:"f",alignment:"good"},    
+        {name:"Voldemort", role:"", house:"Slytherin",gender:"m",alignment:"evil"},    
+        {name:"Bellatrix Lestrange", role:"", house:"Slytherin",gender:"f",alignment:"evil"},           
+        {name:"Severus Snape", role:"staff", house:"Slytherin",gender:"m",alignment:"?"}
+        ];
+
+        $(document).ready(function(){
+
+       
+            $(document).ready(function(){
+                
+            // add row for each character
+                var houses = [];  //  To store a list of each of the house values from the characters array.
+                characters.forEach(function(character){
+                    var characterRowHtml = "<tr>";
+                    for (var characteristic in character) {
+                        var classHtml = "";
+                        if (characteristic === HOUSE_CLASS) {
+                            classHtml = ' class="' + characteristic + '"';
+                        }  
+                        var tdText = character[characteristic];
+                        if (tdText === "") {
+                            tdText = NO_DATA_INDICATOR;
+                        }  
+                        characterRowHtml += "<td" + classHtml + ">" + tdText + "</td>";
+                    }
+                    characterRowHtml += "</tr>";
+                    $("table:first").append(characterRowHtml);
+                    if (! houses.includes(character.house)) {
+                        houses.push(character.house);  
+                    }
+                });
+            		// add button for each house
+                houses.sort();
+                buttonsHtml = "";
+                houses.forEach(function(house){
+                    buttonsHtml +=
+                        "<button>" +
+                        (house.trim()  ?  house:HOUSE_NO_HOUSE_LABEL) +
+                        "</button> ";
+                });
+                $("div#buttons").html(buttonsHtml);
+              $(document).on("click", "button", filterTable);
+                $("button:contains(" + RESET + ")").trigger("click"); 
+
+                function filterTable(event) {
+                    var house;
+                    switch (house = event.target.textContent) {
+                        case RESET:
+                            house = ""; 
+                            break;
+                        case HOUSE_NO_HOUSE_LABEL:
+                            house = NO_DATA_INDICATOR;
+                            break;  
+                    }
+                    
+                    $("table").find("tr").hide();  
+                    $("table").find("tr:first").show(); 
+                    $("table").find("td." + HOUSE_CLASS + ":contains('" + house + "')").parent().show();  
+                    $("table").find("tr:visible:odd").css("background-color", "red");
+                    $("table").find("tr:visible:even").css("background-color", "blue");
+                }
+            });
+        </script>
+
+</html>
+
+        });
+
+        </script>
+</html>
