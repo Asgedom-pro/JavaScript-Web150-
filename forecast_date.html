@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf8">
+    <title>Weather App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+   
+    <pre id="date"></pre>
+    <h1>Weather App</h1>
+
+    <main class="">
+        <section class="form">
+            <form id="form1" action="#" onsubmit="return validateForm(this);">
+                <input type="text" placeholder="US City" name="city">
+                <button>Submit</button>
+            </form>
+        </section>
+
+        <h1>Five day forcast</h1>
+        <div class="city"></div>
+        <ul class="five-day"></ul>
+        
+    </main>
+
+    <script>
+        $('#date').html(Date());
+       
+        $('button').on('click', function(e) {
+            e.preventDefault(); 
+           
+            var city = $('input').val();
+            $('.city').append(city);
+           
+            var APIKey = "b2d03733df09d39de586d6896745b359";
+            var requri = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",us&APPID=" + APIKey;
+           
+            var connectionTEST = $.getJSON(requri, function() {
+                    console.log("Connection: success");
+                })
+                .done(function() {
+                    console.log("Connection: second success");
+                })
+                .fail(function() {
+                    console.log("Connection: error");
+                })
+                .always(function() {
+                    console.log("Test: complete");
+                });
+            console.log(requri);
+            
+            $.ajax({
+                url: requri,
+                dataType: 'jsonp',
+                success: function(json) {
+                    
+                    JSON.stringify(json);
+                    for (var i = 0; i < 5; i++) {
+                        var forecast_date = new Date((json.list[i].dt * 1000)); 
+                        var temp = Math.round((((Number(json.list[i].main.temp) - 273.15) * 9) / 5) + 32); 
+                        var min = Math.round((((Number(json.list[i].main.temp_min) - 273.15) * 9) / 5) + 32); 
+                        var max = Math.round((((Number(json.list[i].main.temp_max) - 273.15) * 9) / 5) + 32); 
+                        var humidity = json.list[i].main.humidity;
+                        var description = json.list[i].weather[0].description;
+                        var desc_icon = json.list[i].weather[0].icon;
+                        // appending data to div and output to HTML
+                        $('.five-day').append("Date: " + forecast_date + ' </br> Temp: ' + temp + '&deg; </br> Min: ' + min + '&deg; </br> Max: ' + max + '&deg;</br> Humidity: ' + humidity + '% </br> Desc.: ' + description + '</br>' + '<img src="http://openweathermap.org/img/w/' + desc_icon + '.png"></br></br><hr>');
+                    }
+                }
+            });
+        })
+    </script>
+
+
+</body>
