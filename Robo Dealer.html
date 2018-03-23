@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>RoboDealer</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+
+                <div id="playingCard-1"></div>
+                <div id="playingCard-2"></div>
+                <div id="playingCard-3"></div>
+                <div id="playingCard-4"></div>
+                <div id="playingCard-5"></div>
+
+        <script>
+        var deck = [
+               
+
+            // SPADES
+            {
+                value: 'ACE',
+                suite: '&spades;',
+                intVal: 1,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'TWO',
+                suite: '&spades;',
+                intVal: 2,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'THREE',
+                suite: '&spades;',
+                intVal: 3,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'FOUR',
+                suite: '&spades;',
+                intVal: 4,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'FIVE',
+                suite: '&spades;',
+                intVal: 5,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'SIX',
+                suite: '&spades;',
+                intVal: 6,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'SEVEN',
+                suite: '&spades;',
+                intVal: 7,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'EIGHT',
+                suite: '&spades;',
+                intVal: 8,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'NINE',
+                suite: '&spades;',
+                intVal: 9,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'TEN',
+                suite: '&spades;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'JACK',
+                suite: '&spades;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'QUEEN',
+                suite: '&spades;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'KING',
+                suite: '&spades;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            },
+
+             // ---------------------------------------------------------
+            {
+                value: 'ACE',
+                suite: '&diams;',
+                intVal: 1,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'TWO',
+                suite: '&diams;',
+                intVal: 2,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'THREE',
+                suite: '&diams;',
+                intVal: 3,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'FOUR',
+                suite: '&diams;',
+                intVal: 4,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'FIVE',
+                suite: '&diams;',
+                intVal: 5,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'SIX',
+                suite: '&diams;',
+                intVal: 6,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'SEVEN',
+                suite: '&diams;',
+                intVal: 7,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'EIGHT',
+                suite: '&diams;',
+                intVal: 8,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'NINE',
+                suite: '&diams;',
+                intVal: 9,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'TEN',
+                suite: '&diams;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'JACK',
+                suite: '&diams;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'QUEEN',
+                suite: '&diams;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'KING',
+                suite: '&diams;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            },
+
+            
+            
+            
+            // ---------------------------------------------------------
+            {
+                value: 'ACE',
+                suite: '&hearts;',
+                intVal: 1,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite;
+                }
+            }, {
+                value: 'TWO',
+                suite: '&hearts;',
+                intVal: 2,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'THREE',
+                suite: '&hearts;',
+                intVal: 3,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'FOUR',
+                suite: '&hearts;',
+                intVal: 4,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'FIVE',
+                suite: '&hearts;',
+                intVal: 5,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'SIX',
+                suite: '&hearts;',
+                intVal: 6,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'SEVEN',
+                suite: '&hearts;',
+                intVal: 7,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'EIGHT',
+                suite: '&hearts;',
+                intVal: 8,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'NINE',
+                suite: '&hearts;',
+                intVal: 9,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'TEN',
+                suite: '&hearts;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'JACK',
+                suite: '&hearts;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'QUEEN',
+                suite: '&hearts;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'KING',
+                suite: '&hearts;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            },
+            
+            
+             // ---------------------------------------------------------
+            
+            {
+                value: 'ACE',
+                suite: '&clubs;',
+                intVal: 1,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'TWO',
+                suite: '&clubs;',
+                intVal: 2,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'THREE',
+                suite: '&clubs;',
+                intVal: 3,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'FOUR',
+                suite: '&clubs;',
+                intVal: 4,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'FIVE',
+                suite: '&clubs;',
+                intVal: 5,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'SIX',
+                suite: '&clubs;',
+                intVal: 6,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'SEVEN',
+                suite: '&clubs;',
+                intVal: 7,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'EIGHT',
+                suite: '&clubs;',
+                intVal: 8,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'NINE',
+                suite: '&clubs;',
+                intVal: 9,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'TEN',
+                suite: '&clubs;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'JACK',
+                suite: '&clubs;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'QUEEN',
+                suite: '&clubs;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }, {
+                value: 'KING',
+                suite: '&clubs;',
+                intVal: 10,
+                playingCard: function() {
+                    return this.value + ' of ' + this.suite
+                }
+            }
+        ]
+
+        
+        deck.__proto__.card = function chooseCards() {
+            return Math.floor(Math.random() * 52)
+        };
+
+        
+            
+        function displayCards() {
+            var card1 = document.getElementById("playingCard-1");
+            card1.innerHTML = "Card 1: " + deck[deck.card()].playingCard();
+
+            var card2 = document.getElementById("playingCard-2");
+            card2.innerHTML = "Card 2: " + deck[deck.card()].playingCard();
+
+            var card3 = document.getElementById("playingCard-3");
+            card3.innerHTML = "Card 3: " + deck[deck.card()].playingCard();
+
+            var card4 = document.getElementById("playingCard-4");
+            card4.innerHTML = "Card 4: " + deck[deck.card()].playingCard();
+
+            var card5 = document.getElementById("playingCard-5");
+            card5.innerHTML = "Card 5: " + deck[deck.card()].playingCard();
+        }
+
+        displayCards();
+    </script>
+    <br>
+<button onclick="displayCards()">Deal Cards</button>
+    </body>
+
+</html>
